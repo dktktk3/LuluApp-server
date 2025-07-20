@@ -8,13 +8,14 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          yarn install
+          npm install
       - name: Build Android Release APK
         script: |
-          yarn android:assembleRelease
+          npm run android:assembleRelease
     artifacts:
       - android/app/build/outputs/apk/release/app-release.apk
     publishing:
       email:
         recipients:
           - your-email@example.com
+
