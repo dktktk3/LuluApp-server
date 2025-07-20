@@ -1,0 +1,20 @@
+workflows:
+  react-native-android:
+    name: React Native Android Build
+    max_build_duration: 60
+    environment:
+      vars:
+        NODE_ENV: production
+    scripts:
+      - name: Install dependencies
+        script: |
+          yarn install
+      - name: Build Android Release APK
+        script: |
+          yarn android:assembleRelease
+    artifacts:
+      - android/app/build/outputs/apk/release/app-release.apk
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com
